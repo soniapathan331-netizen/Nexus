@@ -10,6 +10,7 @@ import {
   Bell,
   FileText,
   Calendar,
+  Video,
   Settings,
   HelpCircle
 } from 'lucide-react';
@@ -52,9 +53,15 @@ export const Sidebar: React.FC = () => {
     { to: '/notifications', icon: <Bell size={20} />, text: 'Notifications' },
     { to: '/documents', icon: <FileText size={20} />, text: 'Documents' },
     {
+
   to: '/calendar',
   icon: <Calendar size={20} />,
   text: 'Calendar'
+},
+    {
+  to: '/video-call',
+  icon: <Video size={20} />,
+  text: 'Video Call'
 },
   ];
   
@@ -69,6 +76,11 @@ export const Sidebar: React.FC = () => {
   to: '/calendar',
   icon: <Calendar size={20} />,
   text: 'Calendar'
+},
+ {
+  to: '/video-call',
+  icon: <Video size={20} />,
+  text: 'Video Call'
 },
   ];
   

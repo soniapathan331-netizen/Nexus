@@ -31,6 +31,7 @@ import { CalendarPage } from './pages/calendar/CalendarPage';
 
 // Chat Pages
 import { ChatPage } from './pages/chat/ChatPage';
+import { VideoCallPage } from './pages/video-call/VideoCallPage';
 
 function App() {
   return (
@@ -88,6 +89,9 @@ function App() {
 
           <Route path="/calendar" element={<DashboardLayout />}>
              <Route index element={<CalendarPage />} />
+          </Route>
+          <Route path="/video-call" element={<DashboardLayout />}>
+             <Route index element={<VideoCallPage />} />
           </Route>
           {/* Chat Routes */}
           <Route path="/chat" element={<DashboardLayout />}>
