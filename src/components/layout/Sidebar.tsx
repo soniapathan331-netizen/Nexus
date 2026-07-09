@@ -11,6 +11,7 @@ import {
   FileText,
   Calendar,
   Video,
+  Wallet,
   Settings,
   HelpCircle
 } from 'lucide-react';
@@ -63,6 +64,12 @@ export const Sidebar: React.FC = () => {
   icon: <Video size={20} />,
   text: 'Video Call'
 },
+
+{
+  to: '/payments',
+  icon: <Wallet size={20} />,
+  text: 'Payments'
+},
   ];
   
   const investorItems = [
@@ -81,6 +88,12 @@ export const Sidebar: React.FC = () => {
   to: '/video-call',
   icon: <Video size={20} />,
   text: 'Video Call'
+},
+
+{
+  to: '/payments',
+  icon: <Wallet size={20} />,
+  text: 'Payments'
 },
   ];
   

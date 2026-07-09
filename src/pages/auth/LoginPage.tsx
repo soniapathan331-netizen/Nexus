@@ -5,6 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
 import { UserRole } from '../../types';
+import { OtpModal } from '../../components/auth/OtpModal';
 
 export const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -12,6 +13,7 @@ export const LoginPage: React.FC = () => {
   const [role, setRole] = useState<UserRole>('entrepreneur');
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [showOtp, setShowOtp] = useState(false);
   
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -23,12 +25,17 @@ export const LoginPage: React.FC = () => {
     
     try {
       await login(email, password, role);
-      // Redirect based on user role
-      navigate(role === 'entrepreneur' ? '/dashboard/entrepreneur' : '/dashboard/investor');
+      setIsLoading(false);
+      setShowOtp(true);
     } catch (err) {
       setError((err as Error).message);
       setIsLoading(false);
     }
+  };
+
+  const handleOtpVerify = () => {
+    setShowOtp(false);
+    navigate(role === 'entrepreneur' ? '/dashboard/entrepreneur' : '/dashboard/investor');
   };
   
   // For demo purposes, pre-filled credentials
@@ -204,6 +211,8 @@ export const LoginPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <OtpModal isOpen={showOtp} onVerify={handleOtpVerify} email={email} />
     </div>
   );
 };
