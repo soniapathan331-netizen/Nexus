@@ -1,18 +1,30 @@
-export const meetingRequests = [
+export interface MeetingRequest {
+  id: string;
+  sender: string;
+  receiver: string;
+  title: string;
+  date: string;
+  time: string;
+  status: "Pending" | "Accepted" | "Declined";
+}
+
+export const meetingRequests: MeetingRequest[] = [
   {
-    id: 1,
-    investor: "Michael Rodriguez",
-    startup: "TechWave AI",
-    date: "2026-07-10",
-    time: "10:00 AM",
+    id: "1",
+    sender: "Sarah Johnson",
+    receiver: "Michael Rodriguez",
+    title: "Startup Pitch",
+    date: "2026-07-15",
+    time: "11:00",
     status: "Pending",
   },
   {
-    id: 2,
-    investor: "Jennifer Lee",
-    startup: "HealthPulse",
-    date: "2026-07-12",
-    time: "02:30 PM",
-    status: "Accepted",
+    id: "2",
+    sender: "Michael Rodriguez",
+    receiver: "Sarah Johnson",
+    title: "Investor Meeting",
+    date: "2026-07-10",
+    time: "03:00 PM",
+    status: "Pending",
   },
 ];

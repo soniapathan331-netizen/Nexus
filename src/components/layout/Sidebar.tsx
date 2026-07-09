@@ -9,10 +9,10 @@ import {
   MessageCircle,
   Bell,
   FileText,
-  Settings,
-  HelpCircle,
   Calendar,
-} from "lucide-react";
+  Settings,
+  HelpCircle
+} from 'lucide-react';
 
 interface SidebarItemProps {
   to: string;
@@ -56,12 +56,6 @@ export const Sidebar: React.FC = () => {
   icon: <Calendar size={20} />,
   text: 'Calendar'
 },
-{
-  to: "/meeting-requests",
-  icon: <Calendar size={20} />,
-  text: "Meeting Requests",
-},
-
   ];
   
   const investorItems = [
@@ -75,11 +69,6 @@ export const Sidebar: React.FC = () => {
   to: '/calendar',
   icon: <Calendar size={20} />,
   text: 'Calendar'
-},
-{
-  to: "/meeting-requests",
-  icon: <Calendar size={20} />,
-  text: "Meeting Requests",
 },
   ];
   
