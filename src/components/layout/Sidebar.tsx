@@ -20,14 +20,15 @@ interface SidebarItemProps {
   to: string;
   icon: React.ReactNode;
   text: string;
+  className?: string;
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ to, icon, text }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ to, icon, text, className = '' }) => {
   return (
     <NavLink
       to={to}
       className={({ isActive }) => 
-        `flex items-center py-2.5 px-4 rounded-md transition-colors duration-200 ${
+        `flex items-center py-2.5 px-4 rounded-md transition-colors duration-200 ${className} ${
           isActive 
             ? 'bg-primary-50 text-primary-700' 
             : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
@@ -52,23 +53,25 @@ export const Sidebar: React.FC = () => {
     { to: '/investors', icon: <CircleDollarSign size={20} />, text: 'Find Investors' },
     { to: '/messages', icon: <MessageCircle size={20} />, text: 'Messages' },
     { to: '/notifications', icon: <Bell size={20} />, text: 'Notifications' },
-    { to: '/documents', icon: <FileText size={20} />, text: 'Documents' },
-    {
-
+    { to: '/documents', icon: <FileText size={20} />, text: 'Documents', className: 'tour-documents' },
+   {
   to: '/calendar',
   icon: <Calendar size={20} />,
-  text: 'Calendar'
+  text: 'Calendar',
+  className: 'tour-calendar'
 },
-    {
+  {
   to: '/video-call',
   icon: <Video size={20} />,
-  text: 'Video Call'
+  text: 'Video Call',
+  className: 'tour-video-call'
 },
 
 {
   to: '/payments',
   icon: <Wallet size={20} />,
-  text: 'Payments'
+  text: 'Payments',
+  className: 'tour-payments'
 },
   ];
   
@@ -80,20 +83,24 @@ export const Sidebar: React.FC = () => {
     { to: '/notifications', icon: <Bell size={20} />, text: 'Notifications' },
     { to: '/deals', icon: <FileText size={20} />, text: 'Deals' },
     {
+ 
   to: '/calendar',
   icon: <Calendar size={20} />,
-  text: 'Calendar'
+  text: 'Calendar',
+  className: 'tour-calendar'
 },
  {
   to: '/video-call',
   icon: <Video size={20} />,
-  text: 'Video Call'
+  text: 'Video Call',
+  className: 'tour-video-call'
 },
 
 {
   to: '/payments',
   icon: <Wallet size={20} />,
-  text: 'Payments'
+  text: 'Payments',
+  className: 'tour-payments'
 },
   ];
   
@@ -105,17 +112,18 @@ export const Sidebar: React.FC = () => {
     { to: '/help', icon: <HelpCircle size={20} />, text: 'Help & Support' },
   ];
   
-  return (
-    <div className="w-64 bg-white h-full border-r border-gray-200 hidden md:block">
+ return (
+    <div className="w-64 bg-white h-full border-r border-gray-200 hidden md:block tour-sidebar">
       <div className="h-full flex flex-col">
         <div className="flex-1 py-4 overflow-y-auto">
           <div className="px-3 space-y-1">
-            {sidebarItems.map((item, index) => (
+           {sidebarItems.map((item, index) => (
               <SidebarItem
                 key={index}
                 to={item.to}
                 icon={item.icon}
                 text={item.text}
+                className={item.className}
               />
             ))}
           </div>

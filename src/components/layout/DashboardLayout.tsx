@@ -3,6 +3,7 @@ import { Outlet, Navigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { Navbar } from './Navbar';
 import { Sidebar } from './Sidebar';
+import { WalkthroughTour } from '../onboarding/WalkthroughTour';
 
 export const DashboardLayout: React.FC = () => {
   const { user, isAuthenticated, isLoading } = useAuth();
@@ -19,10 +20,10 @@ export const DashboardLayout: React.FC = () => {
     return <Navigate to="/login" replace />;
   }
   
-  return (
+ return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
+      <WalkthroughTour />
       <Navbar />
-      
       <div className="flex-1 flex overflow-hidden">
         <Sidebar />
         
